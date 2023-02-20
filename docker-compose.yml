@@ -3,6 +3,6 @@ services:
   app:
     build:
       context: .
-    volumes:
-      - ./app:/app
+      dockerfile: Dockerfile.production
     command: npm test
+    image: sdorodniy/devops-for-programmers-project-74
