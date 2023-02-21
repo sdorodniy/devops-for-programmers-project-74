@@ -6,3 +6,12 @@ run:
 
 test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --build
+
+build:
+	docker-compose -f docker-compose.yml build app
+
+ci:
+	docker-compose -f docker-compose.yml up --abort-on-container-exit
+
+push:
+	docker-compose -f docker-compose.yml push app
