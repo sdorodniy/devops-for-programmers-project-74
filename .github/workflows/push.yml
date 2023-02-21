@@ -11,6 +11,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: default
     steps:
       - uses: actions/checkout@v3
       - name: Log in to Docker Hub
@@ -18,6 +19,13 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Create .env file
+        uses: ozaytsev86/create-env-file@v1
+        with:
+          ENV_DATABASE_HOST: ${{ vars.DATABASE_HOST }}
+          ENV_DATABASE_NAME: ${{ vars.DATABASE_NAME }}
+          ENV_DATABASE_USERNAME: ${{ vars.DATABASE_USERNAME }}
+          ENV_DATABASE_PASSWORD: ${{ vars.DATABASE_PASSWORD }}
       - name: build image
         run: make build
       - name: run tests

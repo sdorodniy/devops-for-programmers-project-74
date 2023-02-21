@@ -6,3 +6,20 @@ services:
       dockerfile: Dockerfile.production
     command: npm test
     image: sdorodniy/devops-for-programmers-project-74
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: "${DATABASE_USERNAME}"
+      POSTGRES_PASSWORD: "${DATABASE_PASSWORD}"
+      POSTGRES_DB: "${DATABASE_NAME}"
+    env_file:
+      - ./.env
+    volumes:
+        - postgres:/var/lib/postgresql/data
+volumes:
+    postgres:

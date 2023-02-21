@@ -2,7 +2,7 @@ install:
 	docker-compose run --rm app npm ci
 
 run:
-	docker-compose up
+	docker-compose -p hexlter-devops up
 
 test:
 	docker-compose -f docker-compose.yml up --abort-on-container-exit --build
