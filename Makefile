@@ -1,3 +1,5 @@
+setup: prepare-env install
+
 install:
 	docker-compose -p hexlter-devops run --rm app npm ci
 
