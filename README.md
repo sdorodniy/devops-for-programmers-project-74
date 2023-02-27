@@ -26,7 +26,7 @@ make install
 ```
 Run tests:
 ```bash
-make ci
+make test
 ```
 Run application
 ```bash

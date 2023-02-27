@@ -10,6 +10,9 @@ run:
 
 stop:
 	docker-compose -p $(PROJECT) down
+	
+test:
+	docker-compose -p $(PROJECT) run --rm app bash -c 'sleep 3 && npm test'
 
 build:
 	docker-compose -p $(PROJECT) -f docker-compose.yml build app
