@@ -24,4 +24,8 @@ push:
 	docker-compose -f docker-compose.yml push app
 
 prepare-env:
+ifneq ($(wildcard .env),)
+	$(error .env file is alreadt exist)
+else
 	cp -n .env.example .env
+endif
