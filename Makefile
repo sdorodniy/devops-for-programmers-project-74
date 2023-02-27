@@ -8,6 +8,9 @@ install:
 run:
 	docker-compose -p $(PROJECT) up
 
+stop:
+	docker-compose -p $(PROJECT) down
+
 build:
 	docker-compose -p $(PROJECT) -f docker-compose.yml build app
 
