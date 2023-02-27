@@ -1,16 +1,18 @@
+PROJECT=hexlter-devops
+
 setup: prepare-env install
 
 install:
-	docker-compose -p hexlter-devops run --rm app npm ci
+	docker-compose -p $(PROJECT) run --rm app npm ci
 
 run:
-	docker-compose -p hexlter-devops up
+	docker-compose -p $(PROJECT) up
 
 build:
-	docker-compose -f docker-compose.yml build app
+	docker-compose -p $(PROJECT) -f docker-compose.yml build app
 
 ci:
-	docker-compose -f docker-compose.yml up --abort-on-container-exit
+	docker-compose -p $(PROJECT) -f docker-compose.yml up --abort-on-container-exit
 
 push:
 	docker-compose -f docker-compose.yml push app
