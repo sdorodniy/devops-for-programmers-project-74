@@ -1,1 +1,12 @@
-node_modules/
+# node files
+app/node_modules/
+app/.npm/
+
+# sqlite DB files
+app/*.sqlite
+
+# Logs
+app/logs
+app/*.log
+
+app/.env
